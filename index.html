@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Project</title>
+    <title>Phone Collection</title>
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/ba65b3aba2.js" crossorigin="anonymous"></script>
     
@@ -13,17 +13,28 @@
     <!-- add css link -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    
+<body class="bg-gray">
+    <!-- phone search area -->
    <div class="container">
+    <h2 class="text-center text-success mt-5">Search your favourite phone</h2>
     <div class="input-group mt-4 w-50 m-auto">
         <input id="search-box" type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="basic-addon2">
         <div class="input-group-append">
-            <span onclick="allPhone()" class="input-group-text" id="search-btn">
+            <span onclick="allPhone()" class="input-group-text btn btn-outline-secondary" id="search-btn">
                 <i class="fa-solid fa-magnifying-glass"></i>Search</span>
         </div>
        </div>
-   </div>
+       </div>
+       
+       <!-- phone search result -->
+
+       <div id="phone-container" class="row row-cols-1 row-cols-md-3 g-4 phone-container">
+        <div class="col">
+      
+       
+        </div>
+    </div>
+    
 
     <!-- add script -->
     <script src="js/app.js"></script>
