@@ -48,7 +48,7 @@ const showPhoneDetails = (phones) => {
         <h2 class="card-title">Name: ${phone.phone_name}</h2>
         <h5>Brand: ${phone.brand}</h5>
             <div class="allbutton">
-                <button onclick="loadPhoneDetail('${phone.slug}')" class="btn btn-success">Delete</button>
+                <button onclick="loadPhoneDetail('${phone.slug}')" class="btn btn-info">Delete</button>
             </div>	
         </div>
         </div>`;
