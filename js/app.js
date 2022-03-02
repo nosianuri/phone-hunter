@@ -1,31 +1,36 @@
 const allPhone = () => {
     // clear data
     document.getElementById("phone-container").innerHTML = "";
-
+    document.getElementById("spinner").style.display = "block";
     const searchValue = document.getElementById("search-box").value;
     
     // load data
     const url =  `https://openapi.programming-hero.com/api/phones?search=${searchValue}`;
 
+
 //  console.log(url);
     fetch(url)
         .then((response) => response.json())
-        .then((data) => showPhoneDetails(data.data));
-
+        .then((data) => {
+            console.log(data.data==0)
+            if (data.data == 0) {
+                document.getElementById("null-phone").style.display = "block";
+            } else {
+                showPhoneDetails(data.data);
+                document.getElementById("null-phone").style.display = "none";
+            }
+        });
+       document.getElementById("spinner").style.display = "none"; 
     // console.log(searchValue);
 };
 
 const showPhoneDetails = (phones) => {
    for (const phone of phones) {
     const parent=document.getElementById("phone-container");
-    if(phones.length == 0 || phones.data
-        == null) {
-            document.getElementById("null-phone").style.display = 'block';
-        } else {
-            ("null-phone").style.display = 'none';
-        }
+    
 
     const div = document.createElement("div");
+    
     div.classList.add('col');
     div.innerHTML = `
     <div class="card h-100">
@@ -55,12 +60,14 @@ const displayPhoneDetail = (phone) => {
     // console.log(phone);
      const phoneDetails = document.getElementById('phone-details');
     const div = document.createElement('div');
+    window.scrollTo(0,0);
     div.classList.add('card');
     div.innerHTML = `
     <div class="text-center p-3">
     <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5>name: ${phone.name}</h5>
+              <h5>releaseDate: ${phone.releaseDate?phone.releaseDate:"No release date found"}</h5>
               <h5>sensors: ${phone.mainFeatures.sensors}</h5>
               <h5>brand: ${phone.brand}</h5>
               <h5>storage: ${phone.mainFeatures.storage}</h5>
@@ -69,7 +76,7 @@ const displayPhoneDetail = (phone) => {
               <h5>memory: ${phone.mainFeatures.memory}</h5>
               <h5>sensors: ${phone.mainFeatures.sensors}</h5>
               <h5>slug: ${phone.slug}</h5>
-              <h5>releaseDate: ${phone.releaseDate}</h5>
+              
               <h5>Bluetooth: ${phone.others.Bluetooth}</h5>
               <h5>GPS: ${phone.others.GPS}</h5>
               <h5>NFC: ${phone.others.NFC}</h5>

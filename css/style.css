@@ -1,3 +1,9 @@
+#null-phone {
+    display: none;
+}
+#spinner{
+    display: none;
+}
 
 .card-img-top {
     width: 25%;
